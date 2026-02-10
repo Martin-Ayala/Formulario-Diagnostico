@@ -23,7 +23,7 @@ Además de construir el frontend del formulario de contacto, también deberás i
 ### Enlaces
 
 - URL en GITHUB de tu proyecto: https://github.com/Martin-Ayala/Formulario-Diagnostico
-- URL del site:[Formulario Diagnostico](https://formulariodiagnostico.netlify.app)
+- URL del site: [Formulario Diagnostico](https://formulariodiagnostico.netlify.app)
 
 ## Autor
 - Nombre completo: Martin Adrian Ayala Uc
