@@ -1,0 +1,229 @@
+:root {
+  /* Paleta de colores oficial */
+  --green-200: hsl(148, 38%, 91%);
+  --green-600: hsl(169, 82%, 27%);
+  --red: hsl(0, 66%, 54%);
+  --white: hsl(0, 0%, 100%);
+  --grey-500: hsl(186, 15%, 59%);
+  --grey-900: hsl(187, 24%, 22%);
+}
+
+/* Reset básico */
+* {
+  box-sizing: border-box;
+  font-family: 'Karla', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--green-200); /* Fondo verde claro */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+/* --- ESTILOS DE LA TARJETA PRINCIPAL --- */
+.container {
+  background: var(--white);
+  padding: 30px;
+  border-radius: 16px;
+  width: 100%;
+  max-width: 700px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+}
+
+h1 {
+  color: var(--grey-900);
+  margin-bottom: 30px;
+  font-weight: 700;
+  letter-spacing: -1px;
+}
+
+/* Grupos de campos */
+.form-group {
+  margin-bottom: 24px;
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  color: var(--grey-900);
+  margin-bottom: 8px;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+/* Inputs de texto y textareas */
+input[type="text"],
+input[type="email"],
+textarea {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid var(--grey-500);
+  border-radius: 8px;
+  font-size: 18px;
+  outline: none;
+  cursor: pointer;
+  transition: border-color 0.3s;
+}
+
+input:hover, textarea:hover {
+  border-color: var(--green-600);
+}
+
+input:focus, textarea:focus {
+  border-color: var(--green-600);
+  outline: 1px solid var(--green-600);
+}
+
+/* --- ESTILOS DE ERRORES (VALIDACIÓN) --- */
+/* Cuando JS agrega la clase .error al padre .form-group */
+.form-group.error input,
+.form-group.error textarea {
+  border-color: var(--red) !important;
+}
+
+.error-msg {
+  display: none; /* Oculto por defecto */
+  color: var(--red);
+  font-size: 14px;
+  margin-top: 8px;
+}
+
+.form-group.error .error-msg {
+  display: block; /* Se muestra si hay error */
+}
+
+/* --- RADIO BUTTONS (Selección de consulta) --- */
+.radio-group {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Contenedor del radio button */
+/* NOTA: Asegúrate de que tu HTML use <div class="radio-option"> o similar */
+.radio-group label, .radio-option { 
+  display: flex;
+  align-items: center;
+  border: 1px solid var(--grey-500);
+  border-radius: 8px;
+  padding: 12px 16px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.radio-group input {
+  margin-right: 12px;
+  width: 20px;
+  height: 20px;
+  accent-color: var(--green-600);
+}
+
+/* Estilo de error para el grupo de radio buttons */
+.form-group.error .radio-group label,
+.form-group.error .radio-option {
+   border-color: var(--red); 
+}
+
+/* --- CHECKBOX (Consentimiento) --- */
+.checkbox-group {
+  display: flex;
+  flex-direction: column; /* Importante: Alinea verticalmente (Caja arriba, Error abajo) */
+  margin-bottom: 20px;
+}
+
+.checkbox-wrapper {
+  display: flex;
+  align-items: center; /* Alinea la cajita con el texto */
+  gap: 16px;
+}
+
+.checkbox-wrapper input {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--green-600);
+  cursor: pointer;
+}
+
+.checkbox-wrapper label {
+  cursor: pointer;
+  margin-bottom: 0; /* Quitamos margen para que se centre bien con la caja */
+}
+
+/* Mensaje de error específico para el checkbox */
+.checkbox-group .error-msg {
+  margin-top: 8px; /* Espacio entre el texto y el error */
+}
+
+/* --- BOTÓN DE ENVIAR --- */
+.btn-submit {
+  width: 100%;
+  background-color: var(--green-600);
+  color: white;
+  padding: 16px;
+  border: none;
+  border-radius: 8px;
+  font-size: 18px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-top: 10px;
+}
+
+.btn-submit:hover {
+  background-color: hsl(169, 82%, 20%);
+}
+
+.btn-submit:disabled {
+  background-color: var(--grey-500);
+  cursor: not-allowed;
+}
+
+/* --- MENSAJE DE ÉXITO --- */
+.success-message {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--grey-900);
+  color: white;
+  padding: 24px;
+  border-radius: 12px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-width: 300px;
+}
+.success-message.hidden {
+  display: none;
+}
+
+/* --- RESPONSIVE (Escritorio) --- */
+@media (min-width: 768px) {
+  .container {
+    padding: 40px;
+  }
+  
+  /* Nombre y Apellido en una sola línea */
+  .form-row {
+    display: flex;
+    gap: 16px;
+  }
+  .form-row .form-group {
+    flex: 1;
+  }
+  
+  /* Radio buttons lado a lado */
+  .radio-group {
+    flex-direction: row;
+  }
+  .radio-group label, .radio-option {
+    flex: 1;
+  }
+}

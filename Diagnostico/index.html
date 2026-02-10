@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formulario de Contacto</title>
+  
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Karla:wght@400;700&display=swap" rel="stylesheet">
+  
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+
+  <div id="success-message" class="success-message hidden">
+    <div class="success-content">
+      <strong><img src="assets/images/icon-success-check.svg" alt="check"> ¡Mensaje enviado!</strong>
+      <p>Gracias por completar el formulario. ¡Nos pondremos en contacto pronto!</p>
+    </div>
+  </div>
+
+  <main class="container">
+    <form id="contactForm" novalidate>
+      <h1>Contáctanos</h1>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="firstName">Nombre *</label>
+          <input type="text" id="firstName" name="firstName" required>
+          <span class="error-msg">Este campo es obligatorio</span>
+        </div>
+        <div class="form-group">
+          <label for="lastName">Apellido *</label>
+          <input type="text" id="lastName" name="lastName" required>
+          <span class="error-msg">Este campo es obligatorio</span>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="email">Dirección de correo electrónico *</label>
+        <input type="email" id="email" name="email" required>
+        <span class="error-msg">Por favor, introduce un correo válido</span>
+      </div>
+
+      <div class="form-group">
+        <label>Tipo de consulta *</label>
+        <div class="radio-group">
+          <div class="radio-option">
+            <input type="radio" id="general" name="queryType" value="General Enquiry" required>
+            <label for="general">Consulta general</label>
+          </div>
+          <div class="radio-option">
+            <input type="radio" id="support" name="queryType" value="Support Request" required>
+            <label for="support">Solicitud de soporte</label>
+          </div>
+        </div>
+        <span class="error-msg">Por favor, selecciona una opción</span>
+      </div>
+
+      <div class="form-group">
+        <label for="message">Mensaje *</label>
+        <textarea id="message" name="message" rows="4" required></textarea>
+        <span class="error-msg">Este campo es obligatorio</span>
+      </div>
+
+      <div class="form-group checkbox-group">
+  <div class="checkbox-wrapper">
+    <input type="checkbox" id="consent" name="consent">
+    <label for="consent">Autorizo ser contactado por el equipo *</label>
+  </div>
+  <span class="error-msg">Para enviar este formulario, por favor consiente ser contactado</span>
+</div>
+
+      <button type="submit" class="btn-submit">Enviar</button>
+    </form>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
